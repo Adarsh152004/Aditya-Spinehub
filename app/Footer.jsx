@@ -214,14 +214,19 @@ export default function MedicalFooter() {
               Get In Touch
             </h4>
             <div className="space-y-5 rounded-2xl bg-white/5 p-6 border border-white/10 backdrop-blur-md shadow-lg">
-              <div className="flex items-start gap-3.5">
-                <div className="p-2 rounded-lg bg-[#0f4c81] text-white shrink-0">
+              <a
+                href="https://maps.app.goo.gl/3yBJLrYM5BcRdoX87"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3.5 group transition-colors"
+              >
+                <div className="p-2 rounded-lg bg-[#0f4c81] text-white shrink-0 group-hover:bg-[#c5973e] transition-colors">
                   <MapPin size={16} />
                 </div>
-                <p className="text-xs leading-relaxed text-blue-100/80">
+                <p className="text-xs leading-relaxed text-blue-100/80 group-hover:text-white transition-colors">
                   3rd Floor, Sushila Mayekar Shopping Centre, LT Road, Borivali (W), Mumbai – 400092
                 </p>
-              </div>
+              </a>
 
               <div className="flex items-start gap-3.5">
                 <div className="p-2 rounded-lg bg-[#0f4c81] text-white shrink-0">
