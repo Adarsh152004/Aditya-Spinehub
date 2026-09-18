@@ -20,7 +20,7 @@ const testimonials = [
     category: "Spine",
     rating: 5,
     theme: "Severe lower-back pain & MRI review",
-    text: "I had severe lower-back pain and difficulty sitting or performing daily activities. Dr. Aditya did a detailed examination and careful review of my MRI reports. The clear explanation gave me confidence in the treatment process. I am finally returning to my normal activities.",
+    text: "I had severe lower-back pain and difficulty sitting or performing daily activities. Dr. Santosh did a detailed examination and careful review of my MRI reports. The clear explanation gave me confidence in the treatment process. I am finally returning to my normal activities.",
     hasVideo: true,
     date: "2 weeks ago"
   },
@@ -135,7 +135,7 @@ const TestimonialsPage = () => {
               <p className="text-[11px] font-bold text-[#1a2b53] uppercase tracking-widest mb-6">Average Rating</p>
             </div>
             <a 
-              href="https://maps.google.com" 
+              href="https://maps.google.com/?q=Aditya+Spine+%26+Joint+Rehab+Borivali+West" 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-3.5 px-4 bg-[#1a2b53] text-white rounded-xl font-semibold hover:bg-[#111e3d] transition-all text-[15px] group"

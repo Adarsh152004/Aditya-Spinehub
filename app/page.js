@@ -66,7 +66,7 @@ export default function HomePage() {
 
   return (
     <div
-      className={`${fraunces.variable} ${manrope.variable} relative min-h-screen bg-[#bac1c8] selection:bg-[#D6C299] selection:text-white`}
+      className={`${fraunces.variable} ${manrope.variable} relative min-h-screen bg-slate-50 selection:bg-[#D4AF37] selection:text-[rgb(20,42,98)]`}
       style={{ fontFamily: 'var(--font-body)' }}
     >
       {/* Global Styles for Smooth Scroll */}
@@ -219,7 +219,7 @@ export default function HomePage() {
 
 
       {/* Rest of the page sections */}
-      <div id="explore" className="bg-[#004899]">
+      <div id="explore">
         <CarePathways />
       </div>
       <WhyChooseus />
