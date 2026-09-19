@@ -19,14 +19,14 @@ const techList = [
     fitsWithExercise: "Followed immediately by deep abdominal core stabilization and directional preference exercises to maintain space."
   },
   {
-    id: "class4-laser",
-    name: "Class 4 Laser Therapy",
-    desc: "A non-invasive modality used by trained clinicians for selected pain and tissue-healing goals, subject to contraindication screening.",
-    videoUrl: "/2.jpeg",
-    badge: "Pain & Healing",
-    problemAssessed: "Acute tissue inflammation, deep muscle spasms, and localized tendon pain.",
-    whyChosen: "Delivers therapeutic light energy (photobiomodulation) to support cellular recovery and soothe pain without heat or pain.",
-    fitsWithExercise: "Calms high-grade resting pain so patients can comfortably participate in active joint mobilization and strengthening."
+    id: "reception",
+    name: "Patient Reception & Front Desk",
+    desc: "A warm and dedicated care desk coordinating patient check-ins, medical document submissions, and structured therapy pathways.",
+    videoUrl: "/Service-images/manual therapy.png",
+    badge: "Patient Welcome",
+    problemAssessed: "Registration delays, scheduling uncertainty, and clinical intake coordination.",
+    whyChosen: "Provides a calm, reassuring environment with dedicated coordinators to guide patients smoothly into rehabilitation.",
+    fitsWithExercise: "Ensures punctual appointment scheduling, smooth clinician handoffs, and timely transitions into therapy suites."
   },
   {
     id: "pemf",
@@ -49,20 +49,20 @@ const techList = [
     fitsWithExercise: "Combined with progressive eccentric tendon loading protocols for long-term structural remodeling."
   },
   {
-    id: "tecar",
-    name: "TECAR Therapy",
-    desc: "Radiofrequency-based therapy used as part of selected rehabilitation plans for tissue heating, mobility and symptom management.",
+    id: "consultation-room",
+    name: "Doctor Consultation & Clinical Assessment Room",
+    desc: "A private diagnostic suite where lead physiotherapists conduct in-depth physical evaluations, orthopedic tests, and MRI/X-ray reviews.",
     videoUrl: "/5.jpeg",
-    badge: "Deep Tissue",
-    problemAssessed: "Deep joint capsule stiffness, muscle contractures, and chronic soft tissue restriction.",
-    whyChosen: "Uses capacitive/resistive electrical energy to safely warm deep joint structures from within.",
-    fitsWithExercise: "Applied alongside manual stretching to immediately gain and retain new range of movement."
+    badge: "Clinical Assessment",
+    problemAssessed: "Unclear pain source, postural misalignment, movement limitations, and diagnostic evaluation.",
+    whyChosen: "Equipped with specialized examination tables and anatomical models for thorough, transparent clinical diagnosis.",
+    fitsWithExercise: "Determines the tailored movement prescription, safety precautions, and progressive therapy roadmap before any exercise begins."
   },
   {
     id: "neuro-gait",
     name: "Neuro Gait & Body-Weight Support Systems",
     desc: "Supported practice for standing, gait, balance and task-specific rehabilitation in suitable neurological or mobility-limited patients.",
-    videoUrl: "/6.jpeg",
+    videoUrl: "/Service-images/neuro.png",
     badge: "Neuro & Gait",
     problemAssessed: "Post-stroke walking difficulty, balance deficits, and post-surgical leg weight-bearing hesitation.",
     whyChosen: "Unloads body weight safely using an overhead harness system, eliminating fear of falling.",
@@ -166,23 +166,22 @@ export default function TechnologyPage() {
               className="bg-white rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group"
             >
               {/* Card Image / Demonstration Thumbnail */}
-              <div className="relative h-52 overflow-hidden bg-slate-900">
+              <div className="relative h-64 sm:h-72 overflow-hidden bg-slate-950 flex items-center justify-center p-2">
                 <img 
                   src={item.videoUrl} 
                   alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgb(20,42,98)]/90 via-transparent to-black/20" />
                 
                 {/* Category Badge */}
-                <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-[rgb(20,42,98)] text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-md text-[rgb(20,42,98)] text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
                   {item.badge}
                 </span>
 
                 {/* Demonstration Play Trigger Button */}
                 <button
                   onClick={() => setActiveVideo(item)}
-                  className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-[#C69A3C] text-[rgb(20,42,98)] flex items-center justify-center shadow-2xl hover:scale-110 transition-transform group-hover:bg-white"
+                  className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-[#C69A3C] text-[rgb(20,42,98)] flex items-center justify-center shadow-2xl hover:scale-110 transition-transform group-hover:bg-white z-10"
                   aria-label={`View clinical explanation for ${item.name}`}
                 >
                   <Play size={24} className="fill-current ml-1" />
@@ -250,15 +249,15 @@ export default function TechnologyPage() {
 
               {/* Modal Body */}
               <div className="p-6 sm:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
-                <div className="relative rounded-2xl overflow-hidden bg-slate-900 h-56">
+                <div className="relative rounded-2xl overflow-hidden bg-slate-950 h-80 sm:h-[450px] flex items-center justify-center p-3">
                   <img 
                     src={activeVideo.videoUrl} 
                     alt={activeVideo.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center text-white text-xs font-bold bg-gradient-to-t from-black/80 via-transparent to-transparent p-4 flex flex-col justify-end">
-                    <span>10–20 Second Clinical Demonstration Video Preview</span>
-                    <span className="text-slate-300 font-normal">Featuring clinician and patient model</span>
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4 flex flex-col justify-end text-white text-xs font-bold pointer-events-none">
+                    <span>Clinical Facility &amp; Modality Overview</span>
+                    <span className="text-slate-300 font-normal">{activeVideo.name}</span>
                   </div>
                 </div>
 
@@ -286,7 +285,7 @@ export default function TechnologyPage() {
                     onClick={() => setActiveVideo(null)}
                     className="flex-1 bg-[rgb(20,42,98)] hover:bg-blue-900 text-white font-bold py-3.5 rounded-xl text-center text-xs transition-colors"
                   >
-                    Book Clinical Evaluation
+                    Book an Appointment
                   </Link>
                   <button
                     onClick={() => setActiveVideo(null)}
@@ -312,7 +311,7 @@ export default function TechnologyPage() {
               href="/contact"
               className="w-full sm:w-auto px-8 py-4 bg-[#C69A3C] text-[rgb(20,42,98)] font-bold rounded-xl text-sm hover:bg-white transition-colors shadow-lg text-center"
             >
-              Book Assessment
+              Book an Appointment
             </Link>
             <a
               href="https://wa.me/917447755533"

@@ -97,17 +97,29 @@ const conditionData = {
     subtitle: "Joint Protection, Pain Management & Strength",
     category: "Knee & Lower Limb",
     heroImage: "https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=1920&q=80",
-    description: "Knee osteoarthritis involves progressive cartilage changes leading to pain, stiffness, and joint noise. Targeted strengthening of quadriceps and glutes reduces mechanical load on the joint.",
+    description: "Knee osteoarthritis involves progressive cartilage wear, joint stiffness, and muscular imbalance. Our goal-oriented rehabilitation protocol combines gentle joint unloading, targeted manual therapy, advanced pain relief modalities, and progressive functional retraining to restore smooth, pain-free mobility.",
     symptoms: ["Stiffness after sitting or upon waking", "Grinding or crepitus sensation", "Pain with stair climbing or squatting", "Joint swelling after activity"],
     causes: ["Age-related cartilage changes", "Previous ligament/meniscus injury", "Altered knee biomechanics", "Quadriceps weakness"],
     redFlags: ["Hot, intensely red, swollen knee", "Complete inability to bear weight", "Fever accompanying joint pain"],
-    approach: "Unloading joint stress through muscular strengthening, gait adjustment, and range of motion preservation.",
+    approachTitle: "Advanced Knee Rehabilitation Programme",
+    approach: "Reducing pain, unloading joint stress and rebuilding strength, mobility and walking confidence through a structured rehabilitation approach.",
     treatments: [
-      { name: "Quadriceps & Glute Building", desc: "Creating shock-absorbing muscle support around the knee." },
-      { name: "Gait & Walking Retraining", desc: "Distributing load evenly across inner and outer joint compartments." },
-      { name: "Patellar Mobilization", desc: "Restoring knee cap gliding for smoother flexion." },
-      { name: "Low-Impact Endurance", desc: "Cycling and guided aquatic-style exercise routines." }
+      { name: "Knee Decompression & Joint Unloading", desc: "Gentle mechanical unloading helps reduce excessive stress across the knee joint and allows more comfortable movement during rehabilitation." },
+      { name: "Advanced Pain & Tissue Recovery", desc: "Class IV Laser, TECAR, PEMF/HPEMT and other clinically selected modalities may be incorporated to support pain reduction and tissue recovery." },
+      { name: "Joint Mobility & Manual Therapy", desc: "Patellar mobilisation, joint mobilisation and soft-tissue techniques help restore movement, flexibility and smoother knee mechanics." },
+      { name: "Strength, Balance & Gait Retraining", desc: "Progressive quadriceps, VMO and glute strengthening combined with balance training, gait correction and functional rehabilitation." }
     ],
+    secondaryTitle: "From Pain Relief to Functional Recovery",
+    secondaryTreatments: [
+      { name: "Shockwave Therapy Where Indicated", desc: "Targeted treatment may be used for selected chronic tendon, soft-tissue and periarticular pain conditions." },
+      { name: "Neuromuscular Activation", desc: "Focused exercises help reactivate weakened quadriceps, VMO, gluteal and stabilising muscles around the knee." },
+      { name: "Proprioception & Stability Training", desc: "Structured balance and coordination exercises improve knee control, stability and confidence during everyday activities." },
+      { name: "Functional & Home Rehabilitation", desc: "Walking, stair training, endurance exercises and an individualised home programme help patients progress toward daily functional goals." }
+    ],
+    clinicalNote: {
+      title: "Technology alone is not rehabilitation.",
+      desc: "At Aditya Spine & Joint Rehab, advanced modalities are combined with clinical assessment, manual therapy, therapeutic exercise and progressive functional training to create an individualised rehabilitation programme."
+    },
     goals: "Decrease daily knee pain, climb stairs comfortably, increase walking distance, and delay or avoid surgery."
   },
   "joint-replacement-rehab": {
@@ -459,7 +471,7 @@ export default function ConditionPage() {
 
             <div className="hero-text-elem flex flex-wrap gap-4 pt-4">
               <Link href="/contact" className="px-8 py-4 bg-[#C69A3C] hover:bg-[#b08535] text-white font-bold rounded-xl shadow-lg shadow-[#C69A3C]/30 transition-all flex items-center gap-2 text-sm sm:text-base">
-                <span>Book Clinical Assessment</span>
+                <span>Book an Appointment</span>
                 <ArrowRight size={18} />
               </Link>
               <a href="tel:7447755533" className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold rounded-xl transition-all flex items-center gap-2 text-sm sm:text-base">
@@ -573,10 +585,10 @@ export default function ConditionPage() {
         </div>
 
         {/* TREATMENT APPROACH & PROTOCOLS */}
-        <div className="space-y-10 section-reveal">
+        <div className="space-y-12 section-reveal">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-[#0071bd] font-bold tracking-widest uppercase text-xs">Evidence-Informed Care</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0a1e3f] font-serif">Our Rehabilitation Approach</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0a1e3f] font-serif">{data.approachTitle || "Our Rehabilitation Approach"}</h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{data.approach}</p>
           </div>
 
@@ -593,6 +605,43 @@ export default function ConditionPage() {
               </div>
             ))}
           </div>
+
+          {/* SECONDARY SECTION (e.g. For Knee Osteoarthritis) */}
+          {data.secondaryTreatments && (
+            <div className="space-y-6 pt-8 border-t border-slate-200">
+              <div className="text-center max-w-3xl mx-auto space-y-2">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#0a1e3f] font-serif">
+                  {data.secondaryTitle || "From Pain Relief to Functional Recovery"}
+                </h3>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {data.secondaryTreatments.map((t, i) => (
+                  <div key={i} className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <div className="w-12 h-12 bg-blue-50 text-[#0071bd] rounded-2xl flex items-center justify-center font-bold text-lg">
+                        {data.treatments.length + i + 1}
+                      </div>
+                      <h4 className="text-lg font-bold text-[#0a1e3f]">{t.name}</h4>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* CLINICAL NOTE BANNER */}
+          {data.clinicalNote && (
+            <div className="bg-gradient-to-br from-[#0a1e3f] via-[#0f2b55] to-slate-900 p-6 sm:p-8 rounded-3xl text-white border border-blue-800/60 shadow-xl space-y-3">
+              <div className="flex items-center gap-3 text-[#C69A3C]">
+                <ShieldCheck size={24} className="shrink-0" />
+                <h4 className="text-lg sm:text-xl font-bold font-serif">{data.clinicalNote.title}</h4>
+              </div>
+              <p className="text-blue-100 text-sm sm:text-base leading-relaxed">
+                {data.clinicalNote.desc}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* GOALS SECTION */}

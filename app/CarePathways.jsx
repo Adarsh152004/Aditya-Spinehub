@@ -27,7 +27,7 @@ export default function CarePathways() {
       href: "/conditions/knee-osteoarthritis",
       icon: <Bone className="w-6 h-6" />,
       desc: "Programmes for knee, shoulder, hip and other joint problems, sports injuries and recovery after orthopaedic surgery.",
-      image: "/sp.png"
+      image: "/Service-images/joints-spine.jpeg"
     },
     {
       id: 3,
@@ -130,7 +130,7 @@ export default function CarePathways() {
             href="/contact"
             className="relative z-10 px-8 py-4 bg-[#C69A3C] hover:bg-white text-[rgb(20,42,98)] font-bold rounded-xl transition-all shadow-lg shadow-black/20 flex items-center gap-2 whitespace-nowrap group shrink-0"
           >
-            <span>Book Assessment</span>
+            <span>Book an Appointment</span>
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

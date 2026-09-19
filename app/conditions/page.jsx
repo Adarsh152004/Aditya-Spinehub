@@ -285,7 +285,7 @@ export default function ConditionsHub() {
             href="/contact"
             className="inline-flex items-center justify-center gap-2 bg-[#C69A3C] text-[rgb(20,42,98)] font-bold px-8 py-4 rounded-xl text-base hover:bg-white transition-colors shadow-lg shrink-0 relative z-10"
           >
-            <span>Book Clinical Assessment</span>
+            <span>Book an Appointment</span>
             <ArrowRight size={18} />
           </Link>
         </div>

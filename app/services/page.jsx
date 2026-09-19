@@ -151,7 +151,7 @@ export default function ServicesPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact" className="inline-flex items-center justify-center bg-yellow-500 text-[#0f172a] py-4 px-10 rounded-full font-bold text-lg hover:bg-yellow-400 transition-all duration-300 shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] transform hover:-translate-y-1">
-              Book Assessment
+              Book an Appointment
             </Link>
             <Link href="/contact" className="inline-flex items-center justify-center bg-transparent border-2 border-blue-400 text-blue-100 py-4 px-10 rounded-full font-bold text-lg hover:bg-blue-900 hover:border-blue-300 transition-all duration-300">
               Contact Us

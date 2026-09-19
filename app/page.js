@@ -119,7 +119,7 @@ export default function HomePage() {
                 href="/contact"
                 className="px-7 py-3.5 bg-[#C69A3C] hover:bg-[#b08535] text-[#ffffff] font-semibold rounded-full transition-colors shadow-lg shadow-[#C69A3C]/20 inline-block text-center"
               >
-                Book an Assessment
+                Book an Appointment
               </Link>
 
               <div>
