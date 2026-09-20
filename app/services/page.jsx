@@ -7,7 +7,7 @@ const services = [
   {
     title: "Spine Rehabilitation",
     description: "For people experiencing back pain, neck pain, sciatica, stiffness, disc-related symptoms, postural strain or reduced spinal movement. Care begins with assessment and may include education, mobility work, graded strengthening, neural mobility, hands-on therapy and suitable technology.",
-    image: "/Service-images/spine rehab.png"
+    image: "/Service-images/spine-rehab.png"
   },
   {
     title: "Joint & Sports Rehabilitation",
@@ -34,22 +34,22 @@ const services = [
     description: "The centre uses modern rehabilitation technologies alongside exercise and hands-on care. Modalities are selected after screening and are not automatically suitable for every patient. The plan may include decompression, electrotherapy, high-intensity laser, shockwave, TECAR.",
     image: "/Service-images/pain.png"
   },
-  {
-    title: "Naturopathy & Integrative Care",
-    description: "Supportive naturopathy approaches may be included for relaxation, lifestyle improvement and general well-being. These services should complement—not replace—appropriate medical diagnosis, prescribed medication or urgent medical care.",
-    image: "/Service-images/neuropathy.png"
-  }
+  // {
+  //   title: "Naturopathy & Integrative Care",
+  //   description: "Supportive naturopathy approaches may be included for relaxation, lifestyle improvement and general well-being. These services should complement—not replace—appropriate medical diagnosis, prescribed medication or urgent medical care.",
+  //   image: "/Service-images/neuropathy.png"
+  // }
 ];
 
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-yellow-200 selection:text-blue-900">
-      
+
       {/* Hero Section - Matching About Us Style */}
       <section className="relative h-[50vh] min-h-[400px] flex flex-col items-center justify-center overflow-hidden">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <img
             src="/spine-banner.avif"
             alt="Clinic Background"
             className="w-full h-full object-cover"
@@ -63,7 +63,7 @@ export default function ServicesPage() {
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 tracking-wide drop-shadow-md">
             Our Services
           </h1>
-          
+
           {/* Breadcrumb Navigation */}
           <div className="flex items-center justify-center gap-2 text-blue-200 text-sm md:text-base font-medium">
             <Link href="/" className="hover:text-white cursor-pointer transition-colors">Home</Link>
@@ -87,27 +87,27 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div 
+              <div
                 key={index}
                 className="group relative bg-white rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-12px_rgba(15,23,42,0.25)] transition-all duration-500 overflow-hidden border border-slate-100 flex flex-col h-full transform hover:-translate-y-2"
               >
                 {/* Card Image Container */}
                 <div className="relative h-64 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500 z-10"></div>
-                  <img 
+                  <img
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-                  
+
                   {/* Floating Icon/Badge (Optional Modern Touch) */}
                   <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </div>
                 </div>
-                
+
                 {/* Card Content */}
                 <div className="p-8 flex-grow flex flex-col relative">
                   {/* Gold Accent Line Top */}
@@ -116,11 +116,11 @@ export default function ServicesPage() {
                   <h3 className="text-2xl font-bold text-[#0f172a] mb-4 group-hover:text-blue-900 transition-colors duration-300 mt-2">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-slate-500 leading-relaxed mb-8 flex-grow text-sm md:text-base line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
                     {service.description}
                   </p>
-                  
+
                   <Link href="/contact" className="w-full mt-auto bg-slate-50 text-[#0f172a] border border-slate-200 py-3.5 px-6 rounded-xl font-semibold text-sm uppercase tracking-wider hover:bg-[#0f172a] hover:text-white hover:border-[#0f172a] transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg">
                     Check Suitability
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -128,7 +128,7 @@ export default function ServicesPage() {
                     </svg>
                   </Link>
                 </div>
-                
+
                 {/* Subtle Glow Effect on Hover */}
                 <div className="absolute inset-0 border-2 border-yellow-500/0 group-hover:border-yellow-500/20 rounded-3xl transition-colors duration-500 pointer-events-none"></div>
               </div>
@@ -141,7 +141,7 @@ export default function ServicesPage() {
       <section className="bg-[#0f172a] py-20 px-4 relative overflow-hidden mt-10">
         <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
-        
+
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Start Your Recovery?

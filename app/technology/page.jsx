@@ -29,24 +29,24 @@ const techList = [
     fitsWithExercise: "Ensures punctual appointment scheduling, smooth clinician handoffs, and timely transitions into therapy suites."
   },
   {
-    id: "pemf",
-    name: "PEMF / High-Intensity Electromagnetic Therapy",
-    desc: "Electromagnetic modalities used for selected pain, muscle activation or rehabilitation goals after screening for implants and other contraindications.",
-    videoUrl: "/3.jpeg",
-    badge: "Muscle Activation",
-    problemAssessed: "Inhibited muscle firing, chronic bone/joint aching, and post-injury sluggish recovery.",
-    whyChosen: "Pulsed electromagnetic fields stimulate deep neuromuscular tissue and support cellular metabolic exchange.",
-    fitsWithExercise: "Acts as a primer to awaken dormant muscle motor units before active resistance training."
+    id: "spinal-decompression-setup",
+    name: "Spinal Decompression Setup",
+    desc: "Computerized motorized decompression system designed to unload spinal discs, release pinched nerves, and alleviate chronic back and neck pain.",
+    videoUrl: "/4.jpeg",
+    badge: "Spine Decompression",
+    problemAssessed: "Herniated or slipped discs, sciatica, cervical radiculopathy, spinal stenosis, and chronic compressive nerve pain.",
+    whyChosen: "Creates negative intra-discal pressure to promote disc retraction, enhance fluid exchange, and remove pressure from sensitive nerve roots.",
+    fitsWithExercise: "Followed immediately by core stabilization, directional therapy, and posture retraining to maintain decompressed space."
   },
   {
-    id: "shockwave",
-    name: "Shockwave Therapy",
-    desc: "A focused mechanical-wave treatment that may be considered for certain chronic tendon and soft-tissue conditions—not for every pain condition.",
-    videoUrl: "/4.jpeg",
-    badge: "Tendon Care",
-    problemAssessed: "Recalcitrant plantar fasciitis, chronic tennis elbow, and calcific shoulder tendinopathy.",
-    whyChosen: "Delivers acoustic energy waves to break down chronic micro-scar tissue and stimulate localized blood circulation.",
-    fitsWithExercise: "Combined with progressive eccentric tendon loading protocols for long-term structural remodeling."
+    id: "chiropractic-bay",
+    name: "Chiropractic Treatment Bay",
+    desc: "A dedicated clinical bay equipped for precise chiropractic spinal adjustments, joint manipulation, and biomechanical alignment.",
+    videoUrl: "/3.jpeg",
+    badge: "Chiropractic Care",
+    problemAssessed: "Spinal subluxations, facet joint restrictions, posture imbalances, acute neck stiffness, and mechanical back strain.",
+    whyChosen: "Restores normal spinal mechanics, reduces nerve interference, and relieves muscular guarding through targeted hands-on alignment.",
+    fitsWithExercise: "Complemented by active mobility routines, stretching, and functional strengthening to reinforce spinal posture."
   },
   {
     id: "consultation-room",

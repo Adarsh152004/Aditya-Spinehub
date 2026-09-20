@@ -8,19 +8,17 @@ import { X, ZoomIn } from 'lucide-react';
 // Clinic rehabilitation and facility gallery data
 const galleryData = [
   { id: 1, src: '/1.jpeg', alt: 'Spine Rehabilitation Session', category: 'treatment' },
-  { id: 2, src: '/2.jpeg', alt: 'Targeted Joint Therapy', category: 'therapy' },
+  { id: 2, src: '/2.jpeg', alt: 'Reception Area', category: 'facility' },
   { id: 3, src: '/3.jpeg', alt: 'Therapeutic Exercises', category: 'exercise' },
   { id: 4, src: '/4.jpeg', alt: 'Modern Clinic Facility', category: 'facility' },
   { id: 5, src: '/5.jpeg', alt: 'Personalized Patient Care', category: 'treatment' },
-  { id: 6, src: '/6.jpeg', alt: 'Advanced Equipment', category: 'facility' },
   { id: 7, src: '/7.jpeg', alt: 'Mobility & Gait Training', category: 'exercise' },
-  { id: 8, src: '/8.jpeg', alt: 'Neuromuscular Re-education', category: 'therapy' },
+  { id: 8, src: '/8.jpeg', alt: 'Spinal Decompression Setup', category: 'therapy' },
   { id: 9, src: '/10.jpeg', alt: 'Guided Strengthening Routine', category: 'exercise' },
-  { id: 11, src: '/12.jpeg', alt: 'Recovery Milestone Progress', category: 'therapy' },
-  { id: 13, src: '/14.jpeg', alt: 'Dedicated Patient Care', category: 'treatment' },
+  { id: 11, src: '/12.jpeg', alt: 'Chiropractic Treatment Bay', category: 'therapy' },
   { id: 14, src: '/15.jpeg', alt: 'Specialized Joint Mobilization', category: 'therapy' },
   { id: 15, src: '/16.jpeg', alt: 'Active Rehabilitation Therapy', category: 'therapy' },
-  { id: 16, src: '/17.jpeg', alt: 'Patient Consultation & Wellness', category: 'treatment' },
+  { id: 16, src: '/17.jpeg', alt: 'QRST Regenova Assessment', category: 'treatment' },
 ];
 
 const categories = [
