@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { 
-  Play, Sparkles, Activity, ShieldCheck, CheckCircle2, 
+import {
+  Play, Sparkles, Activity, ShieldCheck, CheckCircle2,
   HelpCircle, ArrowRight, X, Phone, MessageCircle, AlertCircle, Dumbbell
 } from "lucide-react";
 
@@ -105,11 +105,11 @@ export default function TechnologyPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
-      
+
       {/* --- HERO BANNER --- */}
       <section className="relative pt-32 pb-20 bg-[rgb(20,42,98)] text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#C69A3C]/10 rounded-full blur-3xl pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center space-y-6">
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-xs font-bold text-[#E5C158] uppercase tracking-widest">
             <Sparkles size={14} className="text-[#E5C158]" />
@@ -148,7 +148,7 @@ export default function TechnologyPage() {
 
       {/* --- EQUIPMENT & FACILITIES DEMONSTRATION CARDS --- */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-16 space-y-16">
-        
+
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-[#C69A3C] font-bold uppercase tracking-wider text-xs">Guided Demonstration</span>
           <h2 className="text-3xl sm:text-4xl font-serif text-[rgb(20,42,98)] font-bold">
@@ -161,18 +161,18 @@ export default function TechnologyPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {techList.map((item) => (
-            <div 
+            <div
               key={item.id}
               className="bg-white rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group"
             >
               {/* Card Image / Demonstration Thumbnail */}
               <div className="relative h-64 sm:h-72 overflow-hidden bg-slate-950 flex items-center justify-center p-2">
-                <img 
-                  src={item.videoUrl} 
+                <img
+                  src={item.videoUrl}
                   alt={item.name}
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
-                
+
                 {/* Category Badge */}
                 <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-md text-[rgb(20,42,98)] text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
                   {item.badge}
@@ -232,14 +232,14 @@ export default function TechnologyPage() {
         {activeVideo && (
           <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
             <div className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative space-y-0">
-              
+
               {/* Modal Header */}
               <div className="bg-[rgb(20,42,98)] text-white p-6 flex items-center justify-between">
                 <div>
                   <span className="text-xs font-bold text-[#C69A3C] uppercase tracking-wider">{activeVideo.badge}</span>
                   <h3 className="text-xl font-bold font-serif">{activeVideo.name}</h3>
                 </div>
-                <button 
+                <button
                   onClick={() => setActiveVideo(null)}
                   className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
                 >
@@ -250,8 +250,8 @@ export default function TechnologyPage() {
               {/* Modal Body */}
               <div className="p-6 sm:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
                 <div className="relative rounded-2xl overflow-hidden bg-slate-950 h-80 sm:h-[450px] flex items-center justify-center p-3">
-                  <img 
-                    src={activeVideo.videoUrl} 
+                  <img
+                    src={activeVideo.videoUrl}
                     alt={activeVideo.name}
                     className="w-full h-full object-contain"
                   />

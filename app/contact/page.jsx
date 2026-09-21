@@ -1,11 +1,89 @@
+"use client";
+
 // app/contact/page.jsx
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
   MapPin, Phone, Mail, Clock, ArrowRight, ShieldCheck, 
-  CalendarDays, User, Activity, Send 
+  CalendarDays, User, Activity, Send, MessageCircle, CheckCircle2 
 } from 'lucide-react';
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    mobile: '',
+    ageRange: '',
+    duration: '',
+    contactMethod: 'whatsapp',
+    problem: '',
+    prefDate: '',
+    consent: false
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { id, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const ageLabels = {
+      child: "Child (<12)",
+      teen: "Teen (13-19)",
+      adult: "Adult (20-50)",
+      senior: "Senior (50+)"
+    };
+
+    const durationLabels = {
+      recent: "< 1 Week",
+      short: "1-4 Weeks",
+      medium: "1-6 Months",
+      chronic: "> 6 Months"
+    };
+
+    const contactLabels = {
+      call: "Phone Call",
+      whatsapp: "WhatsApp",
+      email: "Email"
+    };
+
+    const formattedDate = formData.prefDate 
+      ? new Date(formData.prefDate).toLocaleString('en-IN', {
+          dateStyle: 'medium',
+          timeStyle: 'short'
+        })
+      : "Flexible / As available";
+
+    const message = `🏥 *NEW APPOINTMENT INQUIRY*
+*Aditya Spine & Joint Rehab, Borivali West*
+━━━━━━━━━━━━━━━━━━━━━
+👤 *Patient Name:* ${formData.name.trim()}
+📱 *Mobile Number:* ${formData.mobile.trim()}
+🎂 *Age Group:* ${ageLabels[formData.ageRange] || "Not specified"}
+⏱️ *Problem Duration:* ${durationLabels[formData.duration] || "Not specified"}
+📞 *Preferred Contact:* ${contactLabels[formData.contactMethod] || "WhatsApp"}
+🩺 *Main Symptoms / Problem:*
+${formData.problem.trim()}
+🗓️ *Preferred Date & Time:* ${formattedDate}
+━━━━━━━━━━━━━━━━━━━━━
+_Sent via website appointment form_`;
+
+    const whatsappUrl = `https://wa.me/917447755533?text=${encodeURIComponent(message)}`;
+    
+    // Direct open to WhatsApp with prefilled message
+    window.open(whatsappUrl, '_blank');
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+    }, 2000);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-200 selection:text-blue-950">
       
@@ -112,7 +190,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-1 mb-6">
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-blue-950">Book Your Appointment</h2>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                  Please fill in your details below. We will confirm your slot via your preferred contact method.
+                  Fill in your details below. Your request will open in WhatsApp with pre-filled details for instant confirmation!
                 </p>
               </div>
 
@@ -120,24 +198,40 @@ export default function ContactPage() {
               <div className="bg-blue-50/80 border border-blue-100 rounded-2xl p-4 mb-6 flex gap-3 items-start">
                 <ShieldCheck size={20} className="text-blue-950 mt-0.5 shrink-0" />
                 <p className="text-xs text-blue-950 leading-relaxed">
-                  <span className="font-bold">Privacy First:</span> Do not upload sensitive medical reports here. Please bring physical copies during your visit.
+                  <span className="font-bold">Privacy First:</span> Do not upload sensitive medical reports here. Please bring physical copies or share them directly on WhatsApp.
                 </p>
               </div>
 
-              <form className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Personal Info Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-xs font-bold text-blue-950 uppercase tracking-wider flex items-center gap-2 pl-1">
                       <User size={14} className="text-blue-950" /> Full Name
                     </label>
-                    <input type="text" id="name" required className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all placeholder:text-slate-400 font-medium text-slate-900 text-xs sm:text-sm" placeholder="Enter patient name" />
+                    <input 
+                      type="text" 
+                      id="name" 
+                      required 
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all placeholder:text-slate-400 font-medium text-slate-900 text-xs sm:text-sm" 
+                      placeholder="Enter patient name" 
+                    />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="mobile" className="text-xs font-bold text-blue-950 uppercase tracking-wider flex items-center gap-2 pl-1">
                       <Phone size={14} className="text-blue-950" /> Mobile Number
                     </label>
-                    <input type="tel" id="mobile" required className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all placeholder:text-slate-400 font-medium text-slate-900 text-xs sm:text-sm" placeholder="+91 XXXXX XXXXX" />
+                    <input 
+                      type="tel" 
+                      id="mobile" 
+                      required 
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all placeholder:text-slate-400 font-medium text-slate-900 text-xs sm:text-sm" 
+                      placeholder="+91 XXXXX XXXXX" 
+                    />
                   </div>
                 </div>
 
@@ -145,7 +239,12 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
                   <div className="space-y-2">
                     <label htmlFor="ageRange" className="text-xs font-bold text-blue-950 uppercase tracking-wider pl-1">Age Group</label>
-                    <select id="ageRange" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all font-medium text-slate-700 cursor-pointer text-xs sm:text-sm">
+                    <select 
+                      id="ageRange" 
+                      value={formData.ageRange}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all font-medium text-slate-700 cursor-pointer text-xs sm:text-sm"
+                    >
                       <option value="">Select Age</option>
                       <option value="child">Child (&lt;12)</option>
                       <option value="teen">Teen (13-19)</option>
@@ -155,7 +254,12 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="duration" className="text-xs font-bold text-blue-950 uppercase tracking-wider pl-1">Duration</label>
-                    <select id="duration" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all font-medium text-slate-700 cursor-pointer text-xs sm:text-sm">
+                    <select 
+                      id="duration" 
+                      value={formData.duration}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all font-medium text-slate-700 cursor-pointer text-xs sm:text-sm"
+                    >
                       <option value="">How long?</option>
                       <option value="recent">&lt; 1 Week</option>
                       <option value="short">1-4 Weeks</option>
@@ -165,9 +269,14 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="contactMethod" className="text-xs font-bold text-blue-950 uppercase tracking-wider pl-1">Contact Via</label>
-                    <select id="contactMethod" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all font-medium text-slate-700 cursor-pointer text-xs sm:text-sm">
-                      <option value="call">Phone Call</option>
+                    <select 
+                      id="contactMethod" 
+                      value={formData.contactMethod}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all font-medium text-slate-700 cursor-pointer text-xs sm:text-sm"
+                    >
                       <option value="whatsapp">WhatsApp</option>
+                      <option value="call">Phone Call</option>
                       <option value="email">Email</option>
                     </select>
                   </div>
@@ -178,7 +287,15 @@ export default function ContactPage() {
                   <label htmlFor="problem" className="text-xs font-bold text-blue-950 uppercase tracking-wider flex items-center gap-2 pl-1">
                     <Activity size={14} className="text-blue-950" /> Main Problem / Symptoms
                   </label>
-                  <textarea id="problem" rows={4} required className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all resize-none placeholder:text-slate-400 font-medium text-slate-900 text-xs sm:text-sm" placeholder="Describe your pain, stiffness, or injury briefly..."></textarea>
+                  <textarea 
+                    id="problem" 
+                    rows={4} 
+                    required 
+                    value={formData.problem}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all resize-none placeholder:text-slate-400 font-medium text-slate-900 text-xs sm:text-sm" 
+                    placeholder="Describe your pain, stiffness, or injury briefly..."
+                  />
                 </div>
 
                 {/* Preferred Date Time */}
@@ -186,14 +303,27 @@ export default function ContactPage() {
                   <label htmlFor="prefDate" className="text-xs font-bold text-blue-950 uppercase tracking-wider flex items-center gap-2 pl-1">
                     <CalendarDays size={14} className="text-blue-950" /> Preferred Date &amp; Time
                   </label>
-                  <input type="datetime-local" id="prefDate" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all font-medium text-slate-700 text-xs sm:text-sm" />
+                  <input 
+                    type="datetime-local" 
+                    id="prefDate" 
+                    value={formData.prefDate}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-950 focus:bg-white focus:ring-4 focus:ring-blue-950/10 outline-none transition-all font-medium text-slate-700 text-xs sm:text-sm" 
+                  />
                 </div>
 
                 {/* Consent & Submit */}
                 <div className="pt-2">
-                  <label className="flex items-start gap-3 cursor-pointer group mb-6">
+                  <label className="flex items-start gap-3 cursor-pointer group mb-5">
                     <div className="relative flex items-center mt-0.5">
-                      <input type="checkbox" id="consent" required className="peer sr-only" />
+                      <input 
+                        type="checkbox" 
+                        id="consent" 
+                        required 
+                        checked={formData.consent}
+                        onChange={handleChange}
+                        className="peer sr-only" 
+                      />
                       <div className="w-5 h-5 border-2 border-slate-300 rounded-md bg-white peer-checked:bg-blue-950 peer-checked:border-blue-950 transition-all"></div>
                       <svg className="absolute w-3.5 h-3.5 text-white left-[3px] top-[3px] opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
@@ -202,10 +332,19 @@ export default function ContactPage() {
                     </span>
                   </label>
 
-                  <button type="submit" className="group w-full bg-[rgb(20,42,98)] hover:bg-blue-900 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-950/20 hover:-translate-y-0.5 flex items-center justify-center gap-3 text-xs sm:text-sm">
-                    <span>Request Appointment Slot</span>
-                    <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="group w-full bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#25D366]/25 hover:-translate-y-0.5 flex items-center justify-center gap-3 text-sm sm:text-base cursor-pointer disabled:opacity-75"
+                  >
+                    <MessageCircle size={20} className="fill-white" />
+                    <span>{isSubmitting ? 'Opening WhatsApp...' : 'Submit & Send via WhatsApp'}</span>
+                    <Send size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
+
+                  <p className="text-center text-[11px] text-slate-400 mt-3">
+                    🟢 Clicking submit will open WhatsApp with your pre-filled inquiry. Just tap send to connect directly with our clinic!
+                  </p>
                 </div>
               </form>
             </div>
