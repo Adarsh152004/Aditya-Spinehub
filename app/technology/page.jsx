@@ -22,7 +22,7 @@ const techList = [
     id: "reception",
     name: "Patient Reception & Front Desk",
     desc: "A warm and dedicated care desk coordinating patient check-ins, medical document submissions, and structured therapy pathways.",
-    videoUrl: "/Service-images/manual therapy.png",
+    videoUrl: "/6.jpeg",
     badge: "Patient Welcome",
     problemAssessed: "Registration delays, scheduling uncertainty, and clinical intake coordination.",
     whyChosen: "Provides a calm, reassuring environment with dedicated coordinators to guide patients smoothly into rehabilitation.",

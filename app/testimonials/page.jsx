@@ -49,6 +49,24 @@ const testimonials = [
     theme: "Long-standing pain & stiffness",
     text: "I suffered from long-standing shoulder pain with severe stiffness. The detailed physical examination helped pinpoint the issue. Thanks to the supportive team, my pain has significantly reduced, and I can move my arm freely again.",
     date: "2 months ago"
+  },
+  {
+    id: 5,
+    name: "Kavita S.",
+    category: "Neuro",
+    rating: 5,
+    theme: "Post-stroke balance & gait retraining",
+    text: "Following my mother's stroke recovery, walking balance and coordination were major concerns. The neuro-gait support system and dedicated clinicians gave her the safety and confidence to practice steps daily. Excellent facility in Borivali.",
+    date: "1 month ago"
+  },
+  {
+    id: 6,
+    name: "Ramesh T.",
+    category: "Knee/Shoulder",
+    rating: 5,
+    theme: "Knee osteoarthritis & stair climbing",
+    text: "Chronic knee pain made climbing stairs and morning walks excruciating. Through their structured unloading, joint mobilization, and progressive quadriceps strengthening, I am walking comfortably again.",
+    date: "3 weeks ago"
   }
 ];
 
@@ -131,7 +149,7 @@ const TestimonialsPage = () => {
             </div>
             <a 
               href="https://maps.app.goo.gl/3yBJLrYM5BcRdoX87" 
-              target="_blank"
+              target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-3.5 px-4 bg-[#1a2b53] text-white rounded-xl font-semibold hover:bg-[#111e3d] transition-all text-[15px] group"
             >
@@ -181,12 +199,21 @@ const TestimonialsPage = () => {
                 >
                   <Quote className="absolute top-8 right-8 w-10 h-10 text-slate-50 group-hover:text-blue-50 transition-colors" />
                   
-                  {/* Theme Tag */}
-                  <div className="mb-6 flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#3b82f6]" />
-                    <span className="text-[11px] font-bold text-[#1a2b53] bg-blue-50/50 px-3 py-1.5 rounded-full border border-blue-100 tracking-wide uppercase">
-                      {item.theme}
-                    </span>
+                  {/* Theme Tag & 5 Star Rating Header */}
+                  <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-[#3b82f6]" />
+                      <span className="text-[11px] font-bold text-[#1a2b53] bg-blue-50/50 px-3 py-1.5 rounded-full border border-blue-100 tracking-wide uppercase">
+                        {item.theme}
+                      </span>
+                    </div>
+
+                    {/* 5 Golden Stars */}
+                    <div className="flex items-center gap-1">
+                      {[...Array(item.rating || 5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-[#ffc107] fill-[#ffc107]" />
+                      ))}
+                    </div>
                   </div>
 
                   <p className="text-slate-600 mb-8 leading-relaxed text-[15px] flex-grow relative z-10">
@@ -197,6 +224,14 @@ const TestimonialsPage = () => {
                     <div>
                       <h4 className="font-bold text-[#1a2b53] text-base">{item.name}</h4>
                       <p className="text-[13px] text-slate-400">{item.date}</p>
+                    </div>
+                    <div className="flex items-center gap-1.5 bg-amber-50/80 px-2.5 py-1 rounded-lg border border-amber-200/60">
+                      <div className="flex items-center gap-0.5">
+                        {[...Array(item.rating || 5)].map((_, i) => (
+                          <Star key={i} className="w-3.5 h-3.5 text-[#ffc107] fill-[#ffc107]" />
+                        ))}
+                      </div>
+                      <span className="text-xs font-bold text-amber-900">5.0</span>
                     </div>
                   </div>
                 </motion.div>

@@ -22,12 +22,12 @@ const services = [
   {
     title: "Post-operative Rehabilitation",
     description: "Progressive rehabilitation after spine or joint surgery, fracture fixation, joint replacement or other orthopaedic procedures, subject to the surgeon’s precautions. Treatment focuses on pain and swelling management, mobility, muscle activation, strength, balance and return to daily activities.",
-    image: "/Service-images/post operative rehab.png"
+    image: "/Service-images/post-operative-rehab.png"
   },
   {
     title: "Chiropractic & Manual Therapy",
     description: "Hands-on techniques may be used to improve joint mobility, reduce stiffness and support movement when clinically appropriate. Every patient must be screened before manipulation or mobilization to ensure safety and effectiveness.",
-    image: "/Service-images/manual therapy.png"
+    image: "/Service-images/manual-therapy.png"
   },
   {
     title: "Advanced Physiotherapy & Pain",

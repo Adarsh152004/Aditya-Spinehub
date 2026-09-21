@@ -45,7 +45,7 @@ export default function CarePathways() {
       icon: <HeartPulse className="w-6 h-6" />,
       desc: "Physiotherapy, manual therapy, chiropractic, osteopathy and supportive naturopathy approaches used responsibly within an individualized plan.",
       // Image of calm/nature/hands
-      image: "/cer.png"
+      image: "/Service-images/manual-therapy.png"
     }
   ];
 
