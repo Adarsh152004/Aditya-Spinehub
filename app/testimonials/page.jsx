@@ -199,8 +199,8 @@ const TestimonialsPage = () => {
                 >
                   <Quote className="absolute top-8 right-8 w-10 h-10 text-slate-50 group-hover:text-blue-50 transition-colors" />
                   
-                  {/* Theme Tag & 5 Star Rating Header */}
-                  <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                  {/* Theme Tag & 5 Star Rating */}
+                  <div className="mb-6 flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-[#3b82f6]" />
                       <span className="text-[11px] font-bold text-[#1a2b53] bg-blue-50/50 px-3 py-1.5 rounded-full border border-blue-100 tracking-wide uppercase">
@@ -225,14 +225,9 @@ const TestimonialsPage = () => {
                       <h4 className="font-bold text-[#1a2b53] text-base">{item.name}</h4>
                       <p className="text-[13px] text-slate-400">{item.date}</p>
                     </div>
-                    <div className="flex items-center gap-1.5 bg-amber-50/80 px-2.5 py-1 rounded-lg border border-amber-200/60">
-                      <div className="flex items-center gap-0.5">
-                        {[...Array(item.rating || 5)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 text-[#ffc107] fill-[#ffc107]" />
-                        ))}
-                      </div>
-                      <span className="text-xs font-bold text-amber-900">5.0</span>
-                    </div>
+                    <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+                      Verified Patient
+                    </span>
                   </div>
                 </motion.div>
               ))}
