@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, Quote, ExternalLink, MapPin, ShieldCheck, CheckCircle, Activity } from 'lucide-react';
+import { Star, ExternalLink, MapPin, ShieldCheck, CheckCircle, Activity } from 'lucide-react';
 
 // --- DATA: Aligned with Specific Clinical Themes ---
 const categories = [
@@ -197,21 +197,19 @@ const TestimonialsPage = () => {
                   whileHover={{ y: -6 }}
                   className="bg-white p-8 rounded-[1.5rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 relative group flex flex-col h-full"
                 >
-                  <Quote className="absolute top-8 right-8 w-10 h-10 text-slate-50 group-hover:text-blue-50 transition-colors" />
-                  
                   {/* Theme Tag & 5 Star Rating */}
-                  <div className="mb-6 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-[#3b82f6]" />
+                  <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <CheckCircle className="w-4 h-4 text-[#3b82f6] shrink-0" />
                       <span className="text-[11px] font-bold text-[#1a2b53] bg-blue-50/50 px-3 py-1.5 rounded-full border border-blue-100 tracking-wide uppercase">
                         {item.theme}
                       </span>
                     </div>
 
                     {/* 5 Golden Stars */}
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 shrink-0">
                       {[...Array(item.rating || 5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-[#ffc107] fill-[#ffc107]" />
+                        <Star key={i} className="w-4 h-4 text-[#ffc107] fill-[#ffc107] shrink-0" />
                       ))}
                     </div>
                   </div>
